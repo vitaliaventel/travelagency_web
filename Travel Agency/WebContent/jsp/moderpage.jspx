@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt">
+	<jsp:directive.page contentType="text/html" pageEncoding="UTF-8" />
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="ua.kpi.travelagency.i18n.text" />
+<html lang="${language }">
+<head>
+<fmt:message key="moder.alertmsg" var="msg"/>
+<fmt:message key="moder.ipmsg" var="msgIP"/>
+<SCRIPT type="text/javascript">
+function alertMessage(){
+	var id = document.moderOrder.ID.value;
+	alert("${msg}" + id);
+}
+</SCRIPT>
+<title><fmt:message key="login.title"/></title>
+<link rel="stylesheet" href="css/stylemain.css"></link>
+</head>
+<body>
+	<h3><fmt:message key="moder.titlename"/></h3>
+	<hr />
+	<center>
+	<h4><fmt:message key="moder.blacklist"/>:</h4>
+	<form name="blackList" method="POST" action="Controller">
+		<input type="hidden" name="command" value="blackList" /><br />
+				<fmt:message key="moder.ip"/>:
+				<input type="text" class="style-1" name="search" value="" />
+				<fmt:message key="moder.button.add" var="buttonValue1" />
+				<input type="submit" class="ph-button ph-btn-green" name="add" value="${buttonValue1 }" />
+				<fmt:message key="moder.button.delete" var="buttonValue2" />
+				<input type="submit" class="ph-button ph-btn-red" name="delete" value="${buttonValue2}" />
+		<br />
+	</form>
+</center>
+<fieldset>
+   <legend><h4><fmt:message key="moder.tourform"/></h4></legend>
+	<form name="tourForm" method="POST" action="Controller">
+		<input type="hidden" name="command" value="tour" />
+				<fmt:message key="main.table.id"/>:
+				<input type="number" class="style-2" name="id" value="${tour.idTours}" />
+				<fmt:message key="main.table.country"/>:
+				<input type="text" class="style-1" name="country" value="${tour.country }" />
+
+				<fmt:message key="main.table.price"/>:
+				<input type="number" class="style-2" name="price" value="${tour.price }" />
+				
+				<fmt:message key="main.table.tourtype"/>:
+				<input type="number" class="style-2" name="tourtype" value="${tour.tourType}" />
+
+				<fmt:message key="main.table.sale"/>:
+				<input type="number" class="style-2" name="sale" value="${tour.sale}" />
+
+				<fmt:message key="main.table.status"/>:
+				<input type="text" class="style-1" name="status" value="${tour.status}" />
+			<br/>
+				<fmt:message key="moder.button.add" var="buttonValue1" />
+				<input type="submit" class="ph-button ph-btn-green" name="add" value="${buttonValue1 }" />
+				<fmt:message key="moder.button.read" var="buttonValue2" />
+				<input type="submit" class="ph-button ph-btn-grey" name="read" value="${buttonValue2 }" />
+				<fmt:message key="moder.button.update" var="buttonValue3" />
+				<input type="submit" class="ph-button ph-btn-blue" name="update" value="${buttonValue3 }" />
+				<fmt:message key="moder.button.delete" var="buttonValue4" />
+				<input type="submit" class="ph-button ph-btn-red" name="delete" value="${buttonValue4 }" />
+			
+		<br />
+	</form>
+</fieldset>
+	<H4><fmt:message key="moder.orderlist"/>:</H4>
+	<table class="table-fill">
+		<th><fmt:message key="moder.order.ID"/></th>
+		<th><fmt:message key="moder.order.tour"/></th>
+		<th><fmt:message key="login.label.username"/></th>
+		<c:forEach items="${sessionScope.ordersList}" var="order">
+			<tr>
+				<td><c:out value="${order.idOrders}" /></td>
+				<td><c:out value="${order.tour}" /></td>
+				<td><c:out value="${order.login}" /></td>
+			</tr>
+		</c:forEach>
+	</table>
+	<center>
+	<form name="moderOrder" method="POST" action="Controller" onsubmit="return alertMessage();">
+		<input type="hidden" name="command" value="moderOrder" /><br />
+				<fmt:message key="moder.order.ID"/>
+				<input type="text" class="style-1" name="ID" value="" />
+				<fmt:message key="moder.button.delete" var="buttonValue" />
+				<input type="submit" name="button" class="ph-button ph-btn-red" value="${buttonValue }" />
+		<br />
+	</form>
+	</center>
+	<hr />
+</body>
+	</html>
+</jsp:root>

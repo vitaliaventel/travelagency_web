@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>Project</display-name>
+  <servlet>
+    <description></description>
+    <display-name>
+            Controller
+        </display-name>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>ua.kpi.travelagency.controller.Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Controller</servlet-name>
+    <url-pattern>/Controller</url-pattern>
+  </servlet-mapping>
+  
+  <session-config>
+    <session-timeout>1</session-timeout>
+  </session-config>
+  
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>ua.kpi.leshchenko.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+       	<servlet-name>Controller</servlet-name>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>IpFilter</filter-name>
+        <filter-class>ua.kpi.leshchenko.filter.IpFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>IpFilter</filter-name>
+       	<servlet-name>Controller</servlet-name>
+    </filter-mapping>
+</web-app>
