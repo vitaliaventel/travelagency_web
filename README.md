@@ -1,2 +1,2 @@
 # travelagency_web
-Java epam trainee web project
+Java trainee web project
