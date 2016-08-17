@@ -16,7 +16,7 @@ public class CommandLogout implements ICommand {
 	private static Logger logger = Logger.getLogger(CommandLogout.class.getName());
 	
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse responce)
+	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String page = null;
 		try {

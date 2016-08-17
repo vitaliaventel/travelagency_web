@@ -24,6 +24,7 @@ public class CommandTour implements ICommand {
 	private static final String SALE = "sale";
 	private static final String STATUS = "status";
 	private static final String TOURTYPE = "tourtype";
+	private static final String IMAGE = "image";
 	private static final String ADD = "add";
 	private static final String DELETE = "delete";
 	private static final String UPDATE = "update";
@@ -40,6 +41,7 @@ public class CommandTour implements ICommand {
 		String sale = request.getParameter(SALE);
 		String status = request.getParameter(STATUS);
 		String tourType = request.getParameter(TOURTYPE);
+		String image = request.getParameter(IMAGE);
 		String add = request.getParameter(ADD);
 		String read = request.getParameter(READ);
 		String update = request.getParameter(UPDATE);
@@ -52,6 +54,7 @@ public class CommandTour implements ICommand {
 				tour.setSale(Integer.parseInt(sale));
 				tour.setStatus(status);
 				tour.setTourType(Integer.parseInt(tourType));
+				tour.setImage(image);
 				daoTours.create(tour);
 				request.getSession(false).setAttribute("tour", tour);
 				page = Config.getInstance().getProperty(Config.MODER);
@@ -68,6 +71,7 @@ public class CommandTour implements ICommand {
 				tour.setSale(Integer.parseInt(sale));
 				tour.setStatus(status);
 				tour.setTourType(Integer.parseInt(tourType));
+				tour.setImage(image);
 				daoTours.update(tour);
 				request.getSession(false).setAttribute("tour", tour);
 				page = Config.getInstance().getProperty(Config.MODER);

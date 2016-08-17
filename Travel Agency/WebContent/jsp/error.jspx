@@ -15,11 +15,13 @@
 <link rel="stylesheet" href="css/stylemain.css"></link>
 </head>
 <body>
+<center>
 	<h3><fmt:message key="error.name"/></h3>
 	<hr />
 	<jsp:expression>(request.getSession().getAttribute("error") != null) ? (String) request.getSession().getAttribute("error") : "unknown error"</jsp:expression>
 	<hr />
 	<a href="Controller"><fmt:message key="error.return"/></a>
+	</center>
 </body>
 </html>
 

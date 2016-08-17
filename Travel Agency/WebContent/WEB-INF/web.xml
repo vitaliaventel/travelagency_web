@@ -20,7 +20,7 @@
   
     <filter>
         <filter-name>EncodingFilter</filter-name>
-        <filter-class>ua.kpi.leshchenko.filter.EncodingFilter</filter-class>
+        <filter-class>ua.kpi.travelagency.filter.EncodingFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>EncodingFilter</filter-name>
@@ -29,7 +29,7 @@
     
     <filter>
         <filter-name>IpFilter</filter-name>
-        <filter-class>ua.kpi.leshchenko.filter.IpFilter</filter-class>
+        <filter-class>ua.kpi.travelagency.filter.IpFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>IpFilter</filter-name>

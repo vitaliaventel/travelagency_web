@@ -11,6 +11,7 @@ public class Tours implements Serializable {
 	private int sale;
 	private String status;
 	private String tourTypeName;
+	private String image;
 
 	public Tours() {
 
@@ -71,6 +72,14 @@ public class Tours implements Serializable {
 	public void setTourTypeName(String tourTypeName) {
 		this.tourTypeName = tourTypeName;
 	}
+	
+	public String getImage(){
+		return image;
+	}
+	
+	public void setImage(String image){
+		this.image = image;
+	}
 
 	@Override
 	public String toString() {
@@ -83,6 +92,7 @@ public class Tours implements Serializable {
 		res.append(", sale=").append(sale);
 		res.append(", status=").append(status);
 		res.append(", nameType=").append(tourTypeName);
+		res.append(", image=").append(image);
 		return res.toString();
 	}
 }

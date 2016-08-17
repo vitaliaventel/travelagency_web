@@ -3,6 +3,12 @@ package ua.kpi.travelagency.dao;
 import org.apache.log4j.Logger;
 
 import ua.kpi.travelagency.connection.Database;
+import ua.kpi.travelagency.dao.implementation.BlackListDAOImpl;
+import ua.kpi.travelagency.dao.implementation.OrdersDAOImpl;
+import ua.kpi.travelagency.dao.implementation.ToursDAOImpl;
+import ua.kpi.travelagency.dao.implementation.TourtypeDAOImpl;
+import ua.kpi.travelagency.dao.implementation.UsersDAOImpl;
+import ua.kpi.travelagency.dao.implementation.UsertypeDAOImpl;
 
 public class DAOFactory {
 	
